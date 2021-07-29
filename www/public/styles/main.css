@@ -231,6 +231,10 @@ body header .back-mainPage-header-actionContainer {
   text-align: end;
 }
 
+body header .back-mainPage-header-actionContainer a {
+  margin: 20px;
+}
+
 body header .fullButton {
   height: 20px;
   background-color: transparent;
