@@ -12,7 +12,7 @@
     <table id="table_all_articles" class="table thead-dark">
         <thead>
         <tr>
-            <th>Dates</th>
+            <th>Date de modification</th>
             <th>Titre et description</th>
             <th>Créateur</th>
             <th>Statut</th>
@@ -29,8 +29,7 @@
             ?>
         <tr class="text-center">
             <td>
-                <p><img src=<?php App\Core\View::getAssets("icons/plus-solid.svg")?> alt="" height="15" width="15">&nbsp;&nbsp;  <?= date("d/m/Y H:i", strtotime($article["creationDate"])) ?></p>
-                <p><img src=<?php App\Core\View::getAssets("icons/pen-solid.svg")?> alt="" height="15" width="15">&nbsp;&nbsp;  <?= (empty($article["updateDate"])) ? 'Pas modifié' : date("d/m/Y H:i", strtotime($article["updateDate"])) ?></p>
+                <p><img src=<?php App\Core\View::getAssets("icons/icon_calendar.png")?> alt="" height="15" width="15">&nbsp;&nbsp;<?= (empty($article["updateDate"])) ? $article["creationDate"] : date("d/m/Y H:i", strtotime($article["updateDate"])) ?></p>
             </td>
             <td>
                 <p class="listItem-cpt"><b><?= $article["title"] ?></b><br><?= $article["description"] ?></p>
@@ -86,7 +85,7 @@
     <table id="table_all_articles_user" class="table thead-dark">
         <thead>
         <tr>
-            <th>Dates</th>
+            <th>Date de modification</th>
             <th>Titre et description</th>
             <th>Créateur</th>
             <th>Statut</th>
@@ -104,8 +103,7 @@
                 ?>
                 <tr class="text-center">
                     <td>
-                        <p><img src=<?php App\Core\View::getAssets("icons/plus-solid.svg")?> alt="" height="15" width="15">&nbsp;&nbsp;  <?= date("d/m/Y H:i", strtotime($articleByUser["creationDate"])) ?></p>
-                        <p><img src=<?php App\Core\View::getAssets("icons/pen-solid.svg")?> alt="" height="15" width="15">&nbsp;&nbsp;  <?= (empty($articleByUser["updateDate"])) ? 'Pas modifié' : date("d/m/Y H:i", strtotime($articleByUser["updateDate"])) ?></p>
+                        <p><img src=<?php App\Core\View::getAssets("icons/icon_calendar.png")?> alt="" height="15" width="15">&nbsp;&nbsp;<?= (empty($articleByUser["updateDate"])) ? $articleByUser["creationDate"] : date("d/m/Y H:i", strtotime($articleByUser["updateDate"])) ?></p>
                     </td>
                     <td>
                         <p class="listItem-cpt"><b><?= $articleByUser["title"] ?></b><br><?= $articleByUser["description"] ?></p>

@@ -51,13 +51,17 @@ class ListQuery
                         
                         foreach ($column['combo']['columns'] as $comboColumn) {
                             array_push($resultComboString, $resultCombo[$comboColumn]);
-                        } 
+                        }
                         
                         $resultHtml .= '<p class="flex-weight-'.($column['size'] ? $column['size'] : 1).'">'
                                 .htmlspecialchars(implode(' ', $resultComboString))
                             .'</p>';
                     }
                 }else {
+                    if(array_key_exists("creationDate", $result) || array_key_exists("updateDate", $result)) {
+                        $result[$index] = date("d/m/Y H:i", strtotime($result[$index]));
+                    }
+                    
                     $resultHtml .= '<p class="flex-weight-'.($column['size'] ? $column['size'] : 1).'">'
                             .htmlspecialchars($result[$index])
                         .'</p>';

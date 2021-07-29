@@ -171,6 +171,7 @@ class Comment extends Database
                 "content"=>[
                     "type"=>"textarea",
                     "label"=>"Contenu",
+                    "lengthMax"=>"150",
                     "required"=>false,
                     "placeholder"=>"Ecrivez votre commentaire"
                 ],
@@ -256,6 +257,7 @@ class Comment extends Database
                 "content"=>[
                     "type"=>"textarea",
                     "label"=>"Contenu",
+                    "lengthMax"=>"150",
                     "required"=>true,
                     "placeholder"=>"Ecrivez votre commentaire"
                 ],
