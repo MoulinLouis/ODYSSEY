@@ -24,7 +24,7 @@
         foreach($allComments as $comment) { ?>
             <tr class="text-center">
                 <td>
-                    <p><img src=<?php App\Core\View::getAssets("icons/plus-solid.svg")?> alt="" height="15" width="15">&nbsp;&nbsp;  <?= date("d/m/Y H:i", strtotime($comment["creationDate"])) ?></p>
+                    <p><img src=<?php App\Core\View::getAssets("icons/icon_calendar.png")?> alt="" height="15" width="15">&nbsp;&nbsp;<?= (empty($comment["updateDate"])) ? date("d/m/Y H:i", strtotime($comment["creationDate"])) : date("d/m/Y H:i", strtotime($comment["updateDate"])) ?></p>
                     <?php if($comment["isVerified"] == 0) { ?>
                         <p>En attente de vérification</p>
 

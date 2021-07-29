@@ -11,7 +11,7 @@
     <table id="table_all_pages" class="table thead-dark">
         <thead>
         <tr>
-            <th>Dates</th>
+            <th>Date de modification</th>
             <th>Titre et description</th>
             <th>Créateur</th>
             <th>Statut</th>
@@ -24,8 +24,7 @@
         foreach($allPages as $page) { ?>
             <tr class="text-center">
                 <td>
-                    <p><img src=<?php App\Core\View::getAssets("icons/plus-solid.svg")?> alt="" height="15" width="15">&nbsp;&nbsp;  <?= date("d/m/Y H:i", strtotime($page["creationDate"])) ?></p>
-                    <p><img src=<?php App\Core\View::getAssets("icons/pen-solid.svg")?> alt="" height="15" width="15">&nbsp;&nbsp;  <?= (empty($page["updateDate"])) ? 'Pas modifié' : date("d/m/Y H:i", strtotime($page["updateDate"])) ?></p>
+                    <p><img src=<?php App\Core\View::getAssets("icons/icon_calendar.png")?> alt="" height="15" width="15">&nbsp;&nbsp;<?= (empty($page["updateDate"])) ? date("d/m/Y H:i", strtotime($page["creationDate"])) : date("d/m/Y H:i", strtotime($page["updateDate"])) ?></p>
                 </td>
                 <td>
                     <p class="listItem-cpt"><b><?= $page["title"] ?></b><br><?= $page["description"] ?></p>
@@ -69,7 +68,7 @@
     <table id="table_all_pages_user" class="table thead-dark">
         <thead>
         <tr>
-            <th>Dates</th>
+            <th>Date de modification</th>
             <th>Titre et description</th>
             <th>Créateur</th>
             <th>Statut</th>
@@ -82,8 +81,7 @@
         foreach($allPagesByUser as $pageByUser) { ?>
             <tr class="text-center">
                 <td>
-                    <p><img src=<?php App\Core\View::getAssets("icons/plus-solid.svg")?> alt="" height="15" width="15">&nbsp;&nbsp;  <?= date("d/m/Y H:i", strtotime($pageByUser["creationDate"])) ?></p>
-                    <p><img src=<?php App\Core\View::getAssets("icons/pen-solid.svg")?> alt="" height="15" width="15">&nbsp;&nbsp;  <?= (empty($pageByUser["updateDate"])) ? 'Pas modifié' : date("d/m/Y H:i", strtotime($pageByUser["updateDate"])) ?></p>
+                    <p><img src=<?php App\Core\View::getAssets("icons/icon_calendar.png")?> alt="" height="15" width="15">&nbsp;&nbsp;<?= (empty($pageByUser["updateDate"])) ? date("d/m/Y H:i", strtotime($pageByUser["creationDate"])) : date("d/m/Y H:i", strtotime($pageByUser["updateDate"])) ?></p>
                 </td>
                 <td>
                     <p class="listItem-cpt"><b><?= $pageByUser["title"] ?></b><br><?= $pageByUser["description"] ?></p>
