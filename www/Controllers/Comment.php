@@ -43,13 +43,15 @@ class Comment
 
         if (!empty($_POST)) {
             $comment = new ModelComment;
-            if (!empty($_POST['content']) && !empty($_POST['id_Article'])) {
+            if (!empty($_POST['content']) && !empty($_POST['id_Article']) && strlen($_POST['content']) < 150) {
                 $comment->setContent($_POST['content']);
                 $comment->setId_Article($_POST['id_Article']);
                 $comment->setId_User($_SESSION["userId"]);
                 $comment->setIsDeleted(0);
                 $comment->setIsVerified(0);
                 $comment->save();
+            } else {
+                $_SESSION['alert']['danger'][] = 'Erreur dans le formulaire !';
             }
 
             if (!empty($_POST['id_Article'])) {
@@ -78,6 +80,7 @@ class Comment
                 && !empty($_POST['phone'])
                 && !empty($_POST['password'])
                 && !empty($_POST['password-confirm'])
+                && strlen($_POST['content']) < 150
             ) {
                 $user = new User();
                 $user = $user->query(['id', 'password'], ['email' => $_POST['email']]);
@@ -123,6 +126,8 @@ class Comment
                         $_SESSION["userId"] = $user[0]["id"];
                     }
                 }
+            } else {
+                $_SESSION['alert']['danger'][] = 'Erreur dans le formulaire !';
             }
 
             if (!empty($_POST['id_Article'])) {

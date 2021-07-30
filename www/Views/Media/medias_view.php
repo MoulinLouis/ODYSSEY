@@ -15,7 +15,7 @@ App\Core\View::getAssets("datatables.css")?>>
     <table id="table_all_medias" class="table thead-dark">
         <thead>
         <tr>
-            <th>Dates</th>
+            <th>Date de modification</th>
             <th>Nom du média</th>
             <th>Média</th>
             <th>Action</th>
@@ -30,8 +30,7 @@ App\Core\View::getAssets("datatables.css")?>>
         ?>
                 <tr class="text-center">
                     <td>
-                        <p><img src=<?php App\Core\View::getAssets("icons/plus-solid.svg")?> alt="" height="15" width="15">&nbsp;&nbsp;  <?= date("d/m/Y H:i", strtotime($media["creationDate"])) ?></p>
-                        <p><img src=<?php App\Core\View::getAssets("icons/pen-solid.svg")?> alt="" height="15" width="15">&nbsp;&nbsp;  <?= (empty($media["updateDate"])) ? 'Pas modifié' : date("d/m/Y H:i", strtotime($media["updateDate"])) ?></p>
+                        <p><img src=<?php App\Core\View::getAssets("icons/icon_calendar.png")?> alt="" height="15" width="15">&nbsp;&nbsp;<?= (empty($media["updateDate"])) ? date("d/m/Y H:i", strtotime($media["creationDate"])) : date("d/m/Y H:i", strtotime($media["updateDate"])) ?></p>
                     </td>
                     <td>
                         <p class="listItem-cpt"><?= $media["name"] ?></p>
