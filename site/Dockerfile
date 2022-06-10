@@ -1,4 +1,4 @@
-FROM php:7.2-apache
+FROM php:7.4.29-apache
 
 # Install PDO MySQL driver
 # See https://github.com/docker-library/php/issues/62
